@@ -1,10 +1,12 @@
 
+import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { PixController } from 'src/pix/controllers/pix.controller';
+import { PixService } from '../service/pix.service';
 
 @Module({
-  imports: [],
+  imports: [HttpModule],
   controllers: [PixController],
-  providers: [],
+  providers: [PixService],
 })
 export class pixModule {}

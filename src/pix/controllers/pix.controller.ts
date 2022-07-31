@@ -1,12 +1,13 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { PostPixDto } from './dto/post-pix.dto';
+import { PostPixDto } from '../../pix/controllers/dto/post-pix.dto';
+import { PixService } from '../service/pix.service';
 
 
 @Controller('api/v1/pix')
 @ApiTags('Pix')
 export class PixController {
-
+  constructor(private readonly pixService : PixService){}
   @Post('pix')
   @ApiOperation({ summary: 'transfer pix ' })
 
@@ -16,10 +17,10 @@ export class PixController {
     return `transição pix ${postPixDto}`
   }
 
-  @Get('actividades')
-  @ApiOperation({ summary: 'Get all actividades pix' })
+  @Get('transactions')
+  @ApiOperation({ summary: 'All transactions waiting  for reprocessing' })
 
-  async getActividades(): Promise<any>{
-    return `todas as atividades `
+  async getTransactions(): Promise<any>{
+    return await this.pixService.getAllTransitions();
   }
 }

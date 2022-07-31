@@ -22,4 +22,6 @@ export class CustomersController {
   async getBalanceById(@Param('id') id: string): Promise<any>{
     return `customer balance by id`
   }
+
+  
 }
