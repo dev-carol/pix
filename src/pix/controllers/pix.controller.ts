@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { PostPixDto } from './dtos/post-pix.dto';
+import { PostPixDto } from './dto/post-pix.dto';
 
 
 @Controller('api/v1/pix')
@@ -16,5 +16,10 @@ export class PixController {
     return `transição pix ${postPixDto}`
   }
 
- 
+  @Get('actividades')
+  @ApiOperation({ summary: 'Get all actividades pix' })
+
+  async getActividades(): Promise<any>{
+    return `todas as atividades `
+  }
 }
