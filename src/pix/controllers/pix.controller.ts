@@ -14,6 +14,7 @@ export class PixController {
 
   @Post()
   @UseFilters(new HttpExceptionFilter())
+  @ApiOkResponse({ type: PostPixDto, description: "Pix transferred to customer successfully" })
   @ApiOperation({ summary: 'Pixel transfers to the customer ' })
   async sendPix ( @Body() pixDto: PostPixDto): Promise<Pix>{
     return this.pixService.sendPixCustomer(pixDto);
@@ -21,7 +22,7 @@ export class PixController {
 
   @Get('transactions')
   @UseFilters(new HttpExceptionFilter())
-  @ApiOkResponse({ type: GetTransactionsDto })
+  @ApiOkResponse({ type: GetTransactionsDto, description: "All customer transactions obtained" })
   @ApiOperation({ summary: 'All customer transactions waiting for reprocessing' })
   async getTransactions(){
     return await this.pixService.getAllTransitions();
@@ -30,7 +31,7 @@ export class PixController {
 
   @Get(':pixId')
   @UseFilters(new HttpExceptionFilter())
-  @ApiOkResponse({ type: Pix })
+  @ApiOkResponse({ type: Pix, description: "Successful customer pix query" })
   @ApiParam({
     name: 'pixId',
     required: true,

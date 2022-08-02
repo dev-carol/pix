@@ -13,21 +13,25 @@ export class CustomersController {
 
   @Get('customers')
   @UseFilters(new HttpExceptionFilter())
-  @ApiOkResponse({type: GetCustomersDto})
+  @ApiOkResponse({type: GetCustomersDto, description:"Total list of customers successfully obtained"})
   @ApiOperation({ summary: 'Get all customers' })
 
   async getCustomers(){
     return await this.customersService.getAllCustomers();
   }
   
-  @Get('balance')
+  @Get(':costumerId')
   @UseFilters(new HttpExceptionFilter())
+  @ApiOkResponse({description:"Checking the Balance Obtained"})
   @ApiOperation({ summary: 'Get balance' })
-
-  async getBalance(){
-    return await this.customersService.getBalance();
+  @ApiParam({
+    name: 'costumerId',
+    required: true,
+    example: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx',
+  })
+  async getBalance(@Param('costumerId')costumerId: string){
+    return await this.customersService.getBalance(costumerId);
   }
 
- 
   
 }

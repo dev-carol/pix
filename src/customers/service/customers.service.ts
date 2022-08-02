@@ -21,12 +21,10 @@ export class CustomersService{
        return customers;
     }
 
-
-
-    async getBalance(){
+    async getBalance(costumerId: string){
         let balance: IBalance[] = [];
 
-        const url = 'https://run.mocky.io/v3/e0f453b7-620c-4479-839e-28ac58111fca'
+        const url = `https://run.mocky.io/v3/e0f453b7-620c-4479-839e-28ac58111fca/${costumerId}`
        const {status, data} = await this.httpService.get<IBalance[]>(url).toPromise();
 
        if( status === HttpStatus.OK){
