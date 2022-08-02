@@ -1,0 +1,1 @@
+export const STATUS_ERRORS_IMPORT = [403,404]
