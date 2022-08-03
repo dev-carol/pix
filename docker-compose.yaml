@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  nestapp:
+    container_name: nestapp
+    image: nestjs-api-dev:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+      command: npm run start:dev
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env

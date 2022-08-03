@@ -7,7 +7,7 @@ import { PixSchema } from '../schemas/pix.schema';
 import { PixService } from '../service/pix.service';
 
 @Module({
-  imports: [HttpModule,  MongooseModule.forRoot('mongodb+srv://pixwill:pixwill2022@pixwill.grmrc.mongodb.net/?retryWrites=true&w=majority'),
+  imports: [HttpModule,
   MongooseModule.forFeature([{
     name: 'Pix',
     schema: PixSchema
