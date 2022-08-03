@@ -1,9 +1,7 @@
 
-# Plataforma Pix
+# Pix
 
-Desafio técnico Will bank realizado em 02/08/2022
-
-por: Carol Santos
+Plataforma de realizações de transações por pix
 
 
 ## Tecnologias usadas
