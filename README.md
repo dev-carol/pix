@@ -8,7 +8,9 @@ por: Carol Santos
 
 ## Tecnologias usadas
 
-Versão node: 18^
+Versão node: 16^
+Versão typeScript: 4.6.4
+
 
 Framework Node:  [Nestjs](https://nestjs.com/)
 
@@ -32,6 +34,19 @@ Adicionando o projeto em sua máquina:
   docker build -t nest-cloud-run .
   docker run -p3000:3000 nest-cloud-run
 ```
+
+### Caso o Docker não rode
+
+```bash 
+  npm install 
+  npm run start:dev
+```
+obs: Caso o projeto reclame de alguma dependência do mongoDB, rode o comando:
+
+```bash
+  npm install @moongose
+```
+
 
 
 ### Local de acesso
